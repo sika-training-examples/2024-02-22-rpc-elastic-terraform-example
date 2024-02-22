@@ -7,10 +7,14 @@ terraform {
   }
 }
 
+variable "elasticsearch_endpoint" {}
+variable "elasticsearch_user" {}
+variable "elasticsearch_password" {}
+
 provider "elasticstack" {
   elasticsearch {
-    endpoints = ["https://es.k8s.sikademo.com:443"]
-    username  = "elastic"
-    password  = "Mc48Y45YXva5PUv5jyf5P738"
+    endpoints = [var.elasticsearch_endpoint]
+    username  = var.elasticsearch_user
+    password  = var.elasticsearch_password
   }
 }
