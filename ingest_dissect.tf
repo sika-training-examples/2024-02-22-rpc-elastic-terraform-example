@@ -18,7 +18,7 @@ resource "elasticstack_elasticsearch_ingest_pipeline" "dissect" {
   name = "a_dissect"
 
   processors = [
-    data.elasticstack_elasticsearch_ingest_processor_dissect.dissect.json
+    data.elasticstack_elasticsearch_ingest_processor_dissect.dissect.json,
     data.elasticstack_elasticsearch_ingest_processor_append.ok.json,
   ]
   on_failure = [
